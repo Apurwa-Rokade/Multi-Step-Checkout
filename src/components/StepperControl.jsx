@@ -22,7 +22,8 @@ const StepperControl = (handleSubmitProp) => {
   return (
     <div className="container flex justify-around mt-4 mb-8">
       {/* Back button */}
-      <button
+      {currentStep != 1 &&(
+        <button
         type="button"
         onClick={() => handleClick("back")}
         className={`bg-white text-slate-400 uppercase py-2 px-4 rounded-xl font-semibold cursor-pointer border-2 border-slate-300 hover:bg-slate-700 hover:text-white transition duration-200 ease-in-out 
@@ -30,14 +31,13 @@ const StepperControl = (handleSubmitProp) => {
       >
         Back
       </button>
+      )}
 
       {/* Next/Submit button */}
       <button
         type="submit"
         onClick={handleNextClick}
-        className={`bg-green-600 text-white uppercase py-2 px-4 rounded-xl font-semibold cursor-pointer border-2 border-slate-300 hover:bg-slate-700 hover:text-white transition duration-200 ease-in-out ${
-          !isValid ? "opacity-50 cursor-not-allowed" : ""
-        }`}
+        className={`bg-green-600 text-white uppercase py-2 px-4 rounded-xl font-semibold cursor-pointer border-2 border-slate-300 hover:bg-slate-700 hover:text-white transition duration-200 ease-in-out `}
       >
         {currentStep === steps.length - 1 ? "Confirm" : "Next"}
       </button>
